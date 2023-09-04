@@ -1,0 +1,39 @@
+### NEXT JS V13 (APP ROUTER) ###
+
+* Official Docs : https://nextjs.org/docs
+
+* Basic Folder Structure:-
+
+    - src
+        |
+        - app (this will contain frontend(client side) and backend(server side))
+            |_ Frontend (Defined folder name will be route with containing [page.tsx] that will be dispalyed on that route)
+
+            |_ Backend (Under "api" folder defined folder name will be the api path containing [route.ts] which will contains the api logic)
+
+    - connection
+    - models
+    - helpers
+
+- Hence this is the way to create all frontend backend stuffs inside "app" folder with the above mention convention, and all other stuffs such as "connection", "models" and "helpers" etc. folders at "app" folder level(i.e. just inside the "src" folder)
+
+- Nextjs is basically edge run framework (Next.js is often used in conjunction with edge computing or edge deployments. In the context of web development, "edge" typically refers to the network edge, which is closer to the end-users. Edge computing involves processing data and running applications closer to where they are needed, which can result in improved performance and reduced latency for users. Next.js can be used with edge computing platforms or CDNs (Content Delivery Networks) to serve web content from edge locations, making web applications faster and more responsive.)
+
+- Hence, it doesn't stay connected to the database, so whenever the database involvement is needed we have to make the database connection and the bw able to perform the related task.
+
+- In Nextjs 13 every component is a "SERVER COMPONENT".
+
+- So, server components doesn't have access to anything that is on the client side(frontend).
+
+- For accessing any frontend features ("useEffect", "useState" etc.) on any component, we have to explicitly maker that component as client side component by writing ("use client") on top of that component.
+
+- For dynamic routing, we have to give the folder name as dynamic route segment(For Eg: "/src/app/profile/[id]/page.tsx")
+
+- In server components dynamic params and query can be fetched in following manner:
+Example for params: "/src/app/profile/[id]/page.tsx"
+                    In the above path, under "page.tsx" file while defining the function params can be fetched in this way: export default function <fumctionName>({ params }: any){}
+
+Example for query params: "/src/app/profile?name=xyz"
+                    In the above path, under "page.tsx" file while defining the function query params can be fetched in this way: export default function <fumctionName>({searchParams}: any) {}
+
+
